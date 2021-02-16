@@ -1,0 +1,8 @@
+new GlideRecord('incident') - incidents.
+new GlideRecord('sc_task') - tasks
+new GlideRecord('change_task') - change tasks
+new GlideRecord('sc_req_item') - request items
+new GlideRecord('change_request') - Change requests
+
+AEerrors.addQuery('cmdb_ci.name', 'Ansible Tower');
+AEerrors.addQuery('state',1);
