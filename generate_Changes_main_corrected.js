@@ -22,6 +22,7 @@ AE_GenerateChanges.prototype = {
 		this.ts_relation_cache = [ ];
 		this.ns_relation_cache = [ ];
 		this.filterOutProd = false;
+		this.moreToDo = false;
 
 		// ENUMs for arrays
 		this.column = {
@@ -1400,6 +1401,7 @@ AE_GenerateChanges.prototype = {
 					} else {
 						this._log.debug(preLog + "Change creation has reached daily maximum threashold");
 						myrow = this.pipelineSorter.length;
+						this.moreToDo = true;
 					}
 				}
 
@@ -1470,6 +1472,7 @@ AE_GenerateChanges.prototype = {
 		} catch (exception) {
 			this._log.exception(exception,AE_Global.PATCH_AUTOMATION_TS,'exception');
 		}
+		return this.moreToDo;
 	},
 	type: 'AE_GenerateChanges'
 };

@@ -15,9 +15,11 @@
 		notAlreadyLocked = aeRunningLock.setLock(scriptName);
 		if (notAlreadyLocked && gs.getProperty('aed.change.generate', false) == "true") {
 			var changeGenerator = new AE_GenerateChanges();
-			changeGenerator.generatePipelines('NOPROD');
-			changeGenerator = new AE_GenerateChanges();
-			changeGenerator.generatePipelines();			
+			var moreToDo = changeGenerator.generatePipelines("NOPROD");
+			if (!moreToDo) {
+				changeGenerator = new AE_GenerateChanges();
+				changeGenerator.generatePipelines();
+			}
 		}
 	} catch (exception) {
 		log.exception(exception);
