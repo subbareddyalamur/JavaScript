@@ -1440,7 +1440,7 @@ AE_GenerateChanges.prototype = {
 				for (var change in this.changes) {
 					if (this.changes[change].automationType == 2) {
 						this.scheduleUtil.reserveTimeSlots(this.changes[change].startDate,
-						this.changes[change].endDate,
+						this.qqx.endDate,
 						this.changes[change].batchSize);
 					} else {
 						this.scheduleUtilSNOW.reserveTimeSlots(this.changes[change].startDate,
